@@ -30,8 +30,8 @@ const Sidebar = () => {
     return (
         <div>
             {/* Mobile Menu Button */}
-            <div className="lg:hidden fixed top-0 left-0 m-4 z-20">
-                <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
+            <div className="lg:hidden fixed top-0 right-0 m-4 z-20 flex-shrink-0">
+                <button onClick={() => setIsOpen(!isOpen)} className="text-black focus:outline-none">
                     {isOpen ? (
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"

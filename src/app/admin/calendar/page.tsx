@@ -7,6 +7,7 @@ import timeGridPlugin from "@fullcalendar/timegrid"
 import interactionPlugin from "@fullcalendar/interaction"
 import TaskCalendarDialog, {Task} from "@/components/admin/calendar/TaskDialog"
 import {fetchTasks} from "@/utils/tasks"
+import "@/styles/globals.css"
 
 const TaskCalendar: React.FC = () => {
     const calendarRef = useRef<FullCalendar | null>(null);
@@ -89,20 +90,21 @@ const getPriorityColor = (priority: "high" | "medium" | "low" | string): string 
     }, [])
 
     return (
+        <section className="rounded-md py-3 p-2 h-full w-full bg-white border overflow-x-auto">
         <div className="p-6 bg-gray-50 min-h-screen">
             <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <h2 className="text-2xl font-bold text-gray-800">Task Calendar</h2>
                 <div className="flex flex-wrap gap-4">
                     <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <span className="w-3 h-3 rounded-full bg-red-500"></span>
+                        <span className="!w-3 h-3 rounded-full bg-red-500"></span>
                         <span>High Priority</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <span className="w-3 h-3 rounded-full bg-orange-500"></span>
+                        <span className="!w-3 h-3 rounded-full bg-orange-500"></span>
                         <span>Medium Priority</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <span className="w-3 h-3 rounded-full bg-green-500"></span>
+                        <span className="!w-3 h-3 rounded-full bg-green-500"></span>
                         <span>Low Priority</span>
                     </div>
                 </div>
@@ -132,6 +134,7 @@ const getPriorityColor = (priority: "high" | "medium" | "low" | string): string 
                 eventClick={handleEventClick}
             />
         </div>
+        </section>
     );
 };
 

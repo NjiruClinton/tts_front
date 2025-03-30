@@ -108,10 +108,9 @@ const Page = () => {
     };
     
     return (
-        <div>
-            <section className="bg-white flex flex-col md:flex-row justify-center md:justify-between items-center shadow-sm px-4 py-4">
+            <section className="!grid lg:grid-cols-12  gap-[10px] lg:gap-[35px]">
                 
-                <div className="md:w-1/3">
+                <div className="lg:col-span-4">
 
                     <section className="h-[800px] bg-gray-50 rounded-lg shadow-lg p-6">
                         <section className="flex flex-col items-center text-center py-6 space-y-6">
@@ -171,15 +170,15 @@ const Page = () => {
                                 className="text-yellow-600">
                                 Phone Unverified
                             </span>
-                </div>
-        </div>
-</section>
-</section>
-</div>
+                        </div>
+                 </div>
+                </section>
+            </section>
+         </div>
 
                 
-                <div className="md:w-2/3">
-                    <section className=" bg-white p-3 overflow-y-auto">
+                <div className="lg:col-span-8 overflow-y-auto">
+                    <section className=" bg-white space-y-3 overflow-y-auto">
                         {/* Account Information Section */}
                         <section className="bg-white p-6 rounded-lg shadow-lg">
                             <div className="flex justify-between items-center border-b pb-3">
@@ -296,7 +295,7 @@ const Page = () => {
                     </section>
                 </div>
             </section>
-        </div>
+
     )
 }
 

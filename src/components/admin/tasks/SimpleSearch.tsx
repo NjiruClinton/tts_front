@@ -23,7 +23,6 @@ const SearchInput: React.FC<SearchInputProps> = ({
     return (
         <div
             className="bg-white border border-[#CED6E3] rounded-lg flex items-center gap-x-1"
-            style={{width}}
         >
             <Search className="text-[#8D98A9] text-base ml-3" size={16}/>
             <input

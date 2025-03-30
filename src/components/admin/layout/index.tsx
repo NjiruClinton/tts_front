@@ -52,11 +52,11 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
 
     // Show admin dashboard layout for authenticated users
     return (
-        <div className="flex min-h-screen">
+        <div className="flex h-screen !w-full bg-gray-100 overflow-auto">
             <Sidebar />
-            <div className="flex-1 lg:ml-0">
+            <div className="flex-grow flex flex-col">
                 <Header />
-                <main className="p-4 bg-gray-100 h-[95vh] max-h-[95vh] overflow-auto">
+                <main className="flex-grow p-6 overflow-auto">
                     {children}
                 </main>
             </div>

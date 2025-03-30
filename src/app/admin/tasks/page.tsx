@@ -77,7 +77,7 @@ const Tasks = () => {
     }, [selectedTaskStatus, searchTask]);
 
     return (
-        <section className="dashboard rounded-md py-3 bg-white h-full overflow-x-auto">
+        <section className="rounded-md py-3 bg-white h-full overflow-x-auto">
             <section className="flex justify-between items-end border-b-2 pb-1 px-3 mb-3">
                 <h1 className="text-lg text-indigo-700 font-semibold">My Tasks</h1>
                 <button
@@ -88,7 +88,7 @@ const Tasks = () => {
                 </button>
             </section>
 
-            <section className="flex gap-2 ml-[20px]">
+            <section className="flex gap-2 mx-2">
                 <SearchInput setSearchTerm={setSearchTask}
                 />
                 <Dropdown

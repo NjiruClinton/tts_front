@@ -107,10 +107,10 @@ const TaskBoard: React.FC<TaskBoardProps> = ({tasks, updateTask, fetchTasks}) =>
             {tasks.length !== 0 ? (
                 <DragDropContext onDragEnd={onDragEnd}>
                     <div
-                        className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 p-4 overflow-x-auto h-[calc(100vh-210px)]">
+                        className="flex flex-col md:flex-row space-y-4 sm:space-y-0 sm:space-x-6 p-4 overflow-x-auto h-[calc(100vh-210px)]">
                         {statuses.map((status) => (
                             <div key={status}
-                                 className="flex-shrink-0 sm:w-[300px] md:w-[350px] lg:w-[435px] h-[calc(100vh-250px)] sm:h-full">
+                                 className="flex-shrink-0 w-[300px] md:w-[435px] md:h-[calc(100vh-250px)] overflow-y-auto sm:h-full">
                                 <section className="bg-white rounded-t-xl p-4 shadow-sm border border-gray-100">
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center space-x-2">
@@ -124,7 +124,7 @@ const TaskBoard: React.FC<TaskBoardProps> = ({tasks, updateTask, fetchTasks}) =>
                                 </section>
                                 <Droppable droppableId={status}>
                                     {(provided) => (
-                                        <section className="bg-gray-50 space-y-4 p-4 rounded-b-xl h-max min-h-full"
+                                        <section className="bg-gray-50 space-y-4 p-4 rounded-b-xl overflow-y-auto"
                                                  ref={provided.innerRef} {...provided.droppableProps}>
                                             {getTasksByStatus(status).map((task, index) => (
                                                 <Draggable key={task.id} draggableId={task.id} index={index}>

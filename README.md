@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ETasks - Task Management System
 
-## Getting Started
+## Overview
 
-First, run the development server:
+**ETasks** is a comprehensive task management application built with Next.js, designed to help individuals and teams organize, track, and complete their tasks efficiently. It provides features such as task categorization, prioritization, deadline tracking, and drag-and-drop task management.
 
-```bash
+## Features
+- User authentication with Firebase (Email/Password & Google Login)
+- Task creation, editing, and deletion
+- Task status tracking (Open, In Progress, Closed)
+- Drag-and-drop task management using hello-pangea/dnd
+- Task priority levels (High, Medium, Low)
+- Real-time updates with MongoDB and Mongoose
+- Responsive UI with Tailwind CSS
+- Admin dashboard for managing tasks
+- Calendar integration for task deadlines
+## Tech Stack
+- Next.js (App Router, TSX)=
+- Apollo Client for GraphQL
+- Authentication: Firebase Authentication 
+- UI Library: Tailwind CSS, PrimeIcons, Primereact
+- Drag-and-Drop: hello-pangea/dnd
+
+## Installation
+To set up the project locally, follow these steps:
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/NjiruClinton/tts_front.git
+   cd tts_front
+   ```
+
+2. Install the dependencies:
+   ```sh
+   npm install
+   ```
+
+3. Create a `.env` file in the root directory and add the following environment variables: this is the url for the backend
+   ```dotenv
+   NEXT_PUBLIC_API_URL=http://localhost:4000/graphql
+   ```
+
+## Usage
+### Running the Application
+To run the application in development mode:
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To build the application for production (**Vercel**):
+```sh
+npm install && npm run build
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To start the production server (**Vercel**):
+```sh
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Directory Structure
+- `src/`: Contains the source code of the application.
+    - `components/`: Reusable React components.
+    - `context/`: Context providers for global state management.
+    - `pages/`: Next.js pages.
+    - `styles/`: CSS and styling files.
+    - `utils/`: Utility functions and helpers.
+- `public/`: Static assets such as images and icons.
+- `__tests__`: Contains test files for components and utilities.
 
-## Learn More
+## Components
+- LoginPage
+- Navbar
+- AllTasks
+- Dashboard
+- Calendar
+- Tasks
+- Settings
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API
+### GraphQL Client
+The GraphQL client is configured in `src/utils/graphqlClient.ts`:
+```typescript
+import { GraphQLClient } from 'graphql-request'
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+const client = new GraphQLClient(`${process.env.NEXT_PUBLIC_API_URL}/graphql`)
 
-## Deploy on Vercel
+export default client
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Authentication
+The `login` & `signup` functions in `src/utils/auth.ts` handles user authentication:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+
+## Testing
+### Setting Up Tests
+1. Install the necessary dependencies:
+   ```sh
+   npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event
+   ```
+
+2. Configure Jest by creating a `jest.config.js` file:
+   ```javascript
+   module.exports = {
+       testEnvironment: 'jsdom',
+       setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+       moduleNameMapper: {
+           '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+       },
+   };
+   ```
+
+3. Create a `jest.setup.js` file:
+   ```javascript
+   import '@testing-library/jest-dom/extend-expect';
+   ```
+
+### Writing Tests
+Example test for the `AllTasks` component:
+```typescript
+import { render, screen, fireEvent } from '@testing-library/react';
+import AllTasks from '@/components/admin/dashboard/AllTasks';
+
+describe('AllTasks Component', () => {
+    it('renders the All Tasks header', () => {
+        render(<AllTasks />);
+        const headerElement = screen.getByText(/All Tasks/i);
+        expect(headerElement).toBeInTheDocument();
+    });
+
+    it('opens the Create Task dialog when the button is clicked', () => {
+        render(<AllTasks />);
+        const buttonElement = screen.getByText(/Create Task/i);
+        fireEvent.click(buttonElement);
+        const dialogElement = screen.getByText(/Create Task Dialog/i);
+        expect(dialogElement).toBeInTheDocument();
+    });
+});
+```
+
+### Running Tests
+To run the tests:
+```sh
+npm test
+```

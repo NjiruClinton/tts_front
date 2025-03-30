@@ -65,8 +65,8 @@ const EditTask: React.FC<EditTaskProps> = ({
             <Dialog visible={showEditModal} header={headerElement} modal style={{width: "45rem"}} onHide={onClose}>
                 <div className="bg-white rounded-lg">
                     <hr />
-                    <div className="flex justify-between items-center mt-4">
-                        <div className="flex items-center space-x-2">
+                    <div className="flex justify-between flex-col md:flex-row space-y-2 md:space-y-0 md:items-center mt-4">
+                        <div className="flex md:items-center space-x-2">
                             {showEdit ? (
                                 <InputText
                                     type="text"
@@ -133,6 +133,20 @@ const EditTask: React.FC<EditTaskProps> = ({
                             />
                         ) : (
                             <p className="text-gray-900">{task.priority}</p>
+                        )}
+                    </div>
+                    <div className="mt-4">
+                        <h3 className="text-lg font-semibold mb-2">Status</h3>
+                        {showEdit ? (
+                            <Dropdown
+                                value={editedTask.status}
+                                options={["todo", "in_progress", "done"]}
+                                onChange={(e) => setEditedTask({...editedTask, status: e.value})}
+                                placeholder="Select Status"
+                                className="w-full md:w-64 border-gray-300"
+                            />
+                        ) : (
+                            <p className="text-gray-900">{task.status}</p>
                         )}
                     </div>
                     <div className="mt-4">

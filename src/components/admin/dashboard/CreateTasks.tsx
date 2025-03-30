@@ -87,7 +87,7 @@ const CreateTaskDialog: React.FC<CreateTaskDialogProps> = ({
                 life: 3000,
             })
         } finally {
-            // setIsSubmitting(false);
+            setIsSubmitting(false)
         }
     };
 

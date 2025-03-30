@@ -86,24 +86,22 @@ export default function Dashboard() {
     return (
         <section className="dashboard rounded-md py-3 p-2 h-full w-full bg-white border overflow-x-auto">
             {/* Task Category Cards */}
-            <section className="">
-                <div className="flex justify-between">
+            <section className="md:grid md:col-span-4">
+                <div className="grid  grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6">
                     {taskItems.map((task, index) => (
-                        <div key={index} className="w-full px-2">
-                            <div
-                                className={`w-full h-[135px] rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-lg ${getTaskStyles(task.taskStatus)}`}
-                                onClick={() => handleShowTask(task.taskStatus)}
-                            >
-                                <div className="flex items-center justify-between h-full p-6 relative">
-                                    {/* Task Status Icon */}
-                                    <div className="w-16 h-16 rounded-full flex items-center justify-center transition-transform hover:scale-105 bg-gray-100">
-                                        <img src="/completedtasks.svg" className="w-8 h-8" alt="Task status icon" />
-                                    </div>
+                        <div key={index}
+                             className={`w-full h-[135px] rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-lg ${getTaskStyles(task.taskStatus)}`}
+                             onClick={() => handleShowTask(task.taskStatus)}
+                        >
+                            <div className="flex items-center justify-between h-full p-6 relative">
+                                {/* Task Status Icon */}
+                                <div className="w-16 h-16 rounded-full flex items-center justify-center transition-transform hover:scale-105 bg-gray-100">
+                                    <img src="/completedtasks.svg" className="w-8 h-8" alt="Task status icon" />
+                                </div>
 
-                                    <div className={`flex flex-col items-end ${task.color}`}>
-                                        <h1 className="text-[17px] font-medium mb-1">{task.taskStatus}</h1>
-                                        <p className="text-[16px] font-bold">{task.taskNumber}</p>
-                                    </div>
+                                <div className={`flex flex-col items-end ${task.color}`}>
+                                    <h1 className="text-[17px] font-medium mb-1">{task.taskStatus}</h1>
+                                    <p className="text-[16px] font-bold">{task.taskNumber}</p>
                                 </div>
                             </div>
                         </div>
