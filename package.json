@@ -1,0 +1,43 @@
+{
+  "name": "task_tracker",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@fullcalendar/react": "^6.1.15",
+    "@hello-pangea/dnd": "^18.0.1",
+    "fullcalendar": "^6.1.15",
+    "graphql-request": "^7.1.2",
+    "lucide-react": "^0.485.0",
+    "next": "15.2.4",
+    "primeflex": "^3.3.1",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.8.5",
+    "quill": "^2.0.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-draggable": "^4.4.6",
+    "sass": "^1.86.0",
+    "vue-toastification": "^1.7.14"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-jest": "^29.7.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5"
+  }
+}
